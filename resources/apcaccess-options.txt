@@ -1,0 +1,167 @@
+All models
+
+APC     : version, number of records and number of bytes following
+DATE : Date and time of last update from UPS
+HOSTNAME: hostname of computer running apcupsd
+VERSION : apcupsd version number, date and operating system
+UPSNAME : UPS name from configuration file (dumb) or EEPROM (smart)
+CABLE : Cable type specified in the configuration file
+MODEL : UPS model derived from UPS information
+UPSMODE : Mode in which UPS is operating
+STARTTIME : Date and time apcupsd was started
+STATUS : UPS status (online, charging, on battery etc)
+MASTERUPD : Last time the master sent an update to the slave
+ENDAPC : Date and time of status information was written
+
+Smart-UPS and Matrix-UPS (Smart Signalling)
+LINEV : Current input line voltage
+LOADPCT : Percentage of UPS load capacity used as estimated by UPS
+BCHARGE : Current battery capacity charge percentage
+TIMELEFT: Remaining runtime left on battery as estimated by the UPS
+MBATTCHG: Min battery charge % (BCHARGE) required for system shutdown
+MINTIMEL: Min battery runtime (MINUTES) required for system shutdown
+MAXTIME : Max battery runtime (TIMEOUT) after which system is shutdown
+MAXLINEV: Maximum input line voltage since apcupsd started
+MINLINEV: Min (observed) input line voltage since apcupsd started
+OUTPUTV : Current UPS output voltage
+SENSE : Current UPS sensitivity setting for voltage fluctuations
+DWAKE : Time UPS waits after power off when the power is restored
+DSHUTD : Delay before UPS powers down after command received
+DLOWBATT: Low battery signal sent when this much runtime remains
+LOTRANS : Input line voltage below which UPS will switch to battery
+HITRANS : Input line voltage above which UPS will switch to battery
+RETPCT : Battery charge % required after power off to restore power
+ITEMP : UPS internal temperature in degrees Celcius
+ALARMDEL: Delay period before UPS starts sounding alarm
+BATTV : Current battery voltage
+LINEFREQ: Current line frequency in Hertz
+LASTXFER: Reason for last transfer to battery since apcupsd startup
+NUMXFERS: Number of transfers to battery since apcupsd startup
+XONBATT : Date, time of last transfer to battery since apcupsd startup
+TONBATT : Seconds currently on battery
+CUMONBATT : Cumulative seconds on battery since apcupsd startup
+XOFFBAT : Date, time of last transfer off battery since apcupsd startup
+SELFTEST: Date and time of last self test since apcupsd startup
+STESTI : Self-test interval
+STATFLAG: UPS status flag in hex
+DIPSW : Current UPS DIP switch settings
+REG1 : Fault register 1 in hex
+REG2 : Fault register 2 in hex
+REG3 : Fault register 3 in hex
+MANDATE : UPS date of manufacture
+SERIALNO: UPS serial number
+BATTDATE: Date battery last replaced (if set)
+NOMOUTV : Nominal output voltage to supply when on battery power
+NOMBATTV: Nominal battery voltage
+EXTBATTS: Number of external batteries (for XL models)
+BADBATTS: Number of bad external battery packs (for XL models)
+FIRMWARE: UPS firmware version
+APCMODEL: APC model information
+
+Newer Back-UPS Pro (Smart Signalling)
+LINEV : Current input line voltage
+LOADPCT : Percentage of UPS load capacity used
+MBATTCHG: Min battery charge % (BCHARGE) required for system shutdown
+MINTIMEL: Min battery runtime (MINUTES) required for system shutdown
+MAXTIME : Max battery runtime (TIMEOUT) after which system is shutdown
+MAXLINEV: Maximum input line voltage since apcupsd startup
+MINLINEV: Minimum input line voltage since apcupsd startup
+OUTPUTV : Current UPS output voltage
+BATTV : Current battery charge voltage
+STATFLAG: UPS status flag in hex
+
+Back-UPS RS 1500 (USB)
+LINEV : Current input line voltage
+LOADPCT : Percentage of UPS load capacity used
+BCHARGE : Current battery capacity charge percentage
+TIMELEFT: Remaining runtime left on battery as estimated by UPS
+MBATTCHG: Min battery charge % (BCHARGE) required for system shutdown
+MINTIMEL: Min battery runtime (MINUTES) required for system shutdown
+MAXTIME : Max battery runtime (TIMEOUT) after which system is shutdown
+*OUTPUTV: Current UPS output voltage
+*DWAKE : Time UPS waits after power off when the power is restored
+*DSHUTD : Delay before UPS powers down after command received
+LOTRANS : Input line voltage below which UPS will switch to battery
+HITRANS : Input line voltage above which UPS will switch to battery
+*RETPCT : Battery charge % required after power off to restore power
+*ITEMP : UPS internal temperature in degrees Celcius
+ALARMDEL: Delay period before UPS starts sounding alarm
+BATTV : Current battery voltage
+*LINEFREQ : Current line frequency in Hertz
+*LASTXFER : Reason for last transfer to battery since apcupsd startup
+NUMXFERS: Number of transfers to battery since apcupsd startup
+XONBATT : Date, time of last transfer to battery since apcupsd startup
+TONBATT : Seconds currently on battery
+CUMONBATT : Cumulative seconds on battery since apcupsd startup
+XOFFBAT : Date, time of last transfer off battery since apcupsd startup
+SELFTEST: Date and time of last self test since apcupsd startup
+STATFLAG: UPS status flag in hex
+MANDATE : UPS date of manufacture
+SERIALNO: UPS serial number
+BATTDATE: Date battery last replaced (if set)
+NOMBATTV: Nominal battery voltage
+FIRMWARE: UPS firmware version
+APCMODEL: APC model information
+* presence dependant on USB firmware version.
+
+Web/SNMP (AP9716) or PowerNet SNMP (AP9605) SmartSlot Card
+LINEV : Current input line voltage
+LOADPCT : Percentage of UPS load capacity used as estimated by UPS
+BCHARGE : Current battery capacity charge percentage
+TIMELEFT: Remaining runtime left on battery as estimated by UPS
+MBATTCHG: Min battery charge % (BCHARGE) required for system shutdown
+MINTIMEL: Min battery runtime (MINUTES) required for system shutdown
+MAXTIME : Max battery runtime (TIMEOUT) after which system is shutdown
+MAXLINEV: Maximum input line voltage since apcupsd startup
+MINLINEV: Minimum input line voltage since apcupsd startup
+OUTPUTV : UPS output voltage
+SENSE : Current UPS sensitivity setting for voltage fluctuations
+DWAKE : Time UPS waits after power off when the power is restored
+DSHUTD : Delay before UPS powers down after command received
+DLOWBATT: Low battery signal sent when this much runtime remains
+LOTRANS : Input line voltage below which UPS will switch to battery
+HITRANS : Input line voltage above which UPS will switch to battery
+RETPCT : Battery charge % required after power off to restore power
+ITEMP : UPS internal temperature in degrees Celcius
+ALARMDEL: Delay period before UPS starts sounding alarm
+LINEFREQ: Current line frequency in Hertz
+NUMXFERS: Number of transfers to battery since apcupsd startup
+TONBATT : Seconds currently on battery
+CUMONBATT : Cumulative seconds on battery since apcupsd startup
+XOFFBATT: Date, time of last transfer off battery since apcupsd startup
+STESTI : Self-test interval
+STATFLAG: UPS status flag in hex
+DIPSW : Current UPS DIP switch settings
+MANDATE : UPS date of manufacture
+SERIALNO: UPS serial number
+BATTDATE: Date battery last replaced (if set)
+NOMOUTV : Nominal output voltage to supply when on battery power
+NOMPOWER: Nominal power output in watts
+EXTBATTS: Number of external batteries (for XL models)
+BADBATTS: Number of bad external battery packs (for XL models)
+FIRMWARE: UPS firmware version
+APCMODEL: APC model information
+
+Share-UPS (AP9270) (Basic port)
+MBATTCHG: Min battery charge % (BCHARGE) required for system shutdown
+MINTIMEL: Min battery runtime (MINUTES) required for system shutdown
+MAXTIME : Max battery runtime (TIMEOUT) after which system is shutdown
+NUMXFERS: Number of transfers to battery since apcupsd startup
+TONBATT : Seconds currently on battery
+CUMONBATT : Cumulative seconds on battery since apcupsd startup
+XOFFBATT: Date, time of last transfer off battery since apcupsd startup
+STATFLAG: UPS status flag in hex
+
+UPS Environmental Monitoring SmartSlot Card (AP9612TH)
+HUMIDITY: Ambient humidity
+AMBTEMP : Ambient temperature
+
+Back-UPS Pro and Smart-UPS v/s (Smart Signalling)
+LINEFAIL: Input line voltage status.
+BATTSTAT: Battery status.
+LASTXFER: Last (observed) transfer to battery.
+
+Back-UPS and Net-UPS (Simple Signalling)
+LINEFAIL: Input line voltage status.
+BATTSTAT: Battery status.
+STATFLAG: UPS status flag in hex.

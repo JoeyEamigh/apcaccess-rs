@@ -1,0 +1,18 @@
+[package]
+name = "apcaccess"
+version = "0.1.0"
+authors = ["Joey Eamigh"]
+edition = "2021"
+rust-version = "1.72"
+description = "A Rust implementation of apcaccess to get data from apcupsd."
+repository = "https://github.com/JoeyEamigh/apcaccess-rs.git"
+documentation = "https://github.com/JoeyEamigh/apcaccess-rs"
+homepage = "https://github.com/JoeyEamigh/apcaccess-rs"
+keywords = ["apcaccess", "apcupsd"]
+readme = "README.md"
+license = "MIT"
+
+[dependencies]
+
+[[example]]
+name = "example"
