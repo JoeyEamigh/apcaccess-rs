@@ -51,7 +51,12 @@ impl APCAccess {
 
   pub fn fetch(&self) -> std::io::Result<HashMap<String, String>> {
     let start = std::time::Instant::now();
-    let mut stream = TcpStream::connect(format!("{}:{}", self.config.host.clone(), self.config.port))?;
+    let mut stream = TcpStream::connect_timeout(
+      &format!("{}:{}", self.config.host.clone(), self.config.port)
+        .parse()
+        .unwrap(),
+      std::time::Duration::from_secs(self.config.timeout),
+    )?;
 
     let mut output = String::new();
     stream.write_all(STATUS_CMD)?;
