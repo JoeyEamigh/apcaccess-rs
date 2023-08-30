@@ -24,6 +24,7 @@ pub struct APCAccessConfig {
   pub host: String,
   pub port: u16,
   pub strip_units: bool,
+  pub timeout: u64,
 }
 
 impl Default for APCAccessConfig {
@@ -32,6 +33,7 @@ impl Default for APCAccessConfig {
       host: "127.0.0.1".to_string(),
       port: 3551,
       strip_units: false,
+      timeout: 5,
     }
   }
 }
@@ -48,6 +50,7 @@ impl APCAccess {
   }
 
   pub fn fetch(&self) -> std::io::Result<HashMap<String, String>> {
+    let start = std::time::Instant::now();
     let mut stream = TcpStream::connect(format!("{}:{}", self.config.host.clone(), self.config.port))?;
 
     let mut output = String::new();
@@ -62,6 +65,13 @@ impl APCAccess {
       if data.ends_with(EOF) {
         stream.shutdown(std::net::Shutdown::Both)?;
         break;
+      }
+
+      if start.elapsed().as_secs() >= self.config.timeout {
+        return Err(std::io::Error::new(
+          std::io::ErrorKind::TimedOut,
+          "Timed out while reading from socket",
+        ));
       }
     }
 
