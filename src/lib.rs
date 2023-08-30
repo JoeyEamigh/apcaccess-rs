@@ -20,6 +20,7 @@ const ALL_UNITS: &[&str] = &[
   "Percent Load Capacity",
 ];
 
+#[derive(Clone)]
 pub struct APCAccessConfig {
   pub host: String,
   pub port: u16,
@@ -38,6 +39,7 @@ impl Default for APCAccessConfig {
   }
 }
 
+#[derive(Clone)]
 pub struct APCAccess {
   config: APCAccessConfig,
 }
