@@ -1,3 +1,4 @@
+use std::time::Duration;
 use apcaccess::{APCAccess, APCAccessConfig};
 
 pub fn main() {
@@ -5,7 +6,7 @@ pub fn main() {
     host: "127.0.0.1".into(),
     port: 3551,
     strip_units: true,
-    timeout: 5,
+    timeout: Duration::from_secs(5),
   }));
 
   let data = apc.fetch().unwrap();

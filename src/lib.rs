@@ -1,6 +1,7 @@
 use std::collections::HashMap;
 use std::io::prelude::*;
 use std::net::TcpStream;
+use std::time::Duration;
 
 const STATUS_CMD: &[u8] = "\x00\x06status".as_bytes();
 const EOF: &str = "  \n\x00\x00";
@@ -25,7 +26,7 @@ pub struct APCAccessConfig {
   pub host: String,
   pub port: u16,
   pub strip_units: bool,
-  pub timeout: u64,
+  pub timeout: Duration,
 }
 
 impl Default for APCAccessConfig {
@@ -34,7 +35,7 @@ impl Default for APCAccessConfig {
       host: "127.0.0.1".to_string(),
       port: 3551,
       strip_units: false,
-      timeout: 5,
+      timeout: Duration::from_secs(5),
     }
   }
 }
@@ -57,13 +58,14 @@ impl APCAccess {
       &format!("{}:{}", self.config.host.clone(), self.config.port)
         .parse()
         .unwrap(),
-      std::time::Duration::from_secs(self.config.timeout),
+      self.config.timeout,
     )?;
 
     let mut output = String::new();
     stream.write_all(STATUS_CMD)?;
 
     loop {
+      stream.set_read_timeout(Some((self.config.timeout.saturating_sub(start.elapsed())).max(Duration::from_millis(1))))?;
       let mut buffer = [0; BUFFER_SIZE];
       let bytes_read = stream.read(&mut buffer)?;
       let data = String::from_utf8_lossy(&buffer[..bytes_read]);
@@ -72,13 +74,6 @@ impl APCAccess {
       if data.ends_with(EOF) {
         stream.shutdown(std::net::Shutdown::Both)?;
         break;
-      }
-
-      if start.elapsed().as_secs() >= self.config.timeout {
-        return Err(std::io::Error::new(
-          std::io::ErrorKind::TimedOut,
-          "Timed out while reading from socket",
-        ));
       }
     }
 
