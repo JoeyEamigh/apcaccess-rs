@@ -1,6 +1,6 @@
 [package]
 name = "apcaccess"
-version = "0.1.3"
+version = "0.2.0"
 authors = ["Joey Eamigh"]
 edition = "2021"
 rust-version = "1.72"

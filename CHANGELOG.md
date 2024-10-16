@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0] - 2024-10-16
+
+New release with changes from PRs #1 and #2. This is a breaking change as timeout has been changed to a `Duration`.
+
 ## [0.1.3] - 2023-8-30
 
 Allow clone on structs in library.
