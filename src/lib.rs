@@ -69,7 +69,7 @@ impl APCAccess {
       let data = String::from_utf8_lossy(&buffer[..bytes_read]);
       output.push_str(&data);
 
-      if data.ends_with(EOF) {
+      if output.ends_with(EOF) {
         stream.shutdown(std::net::Shutdown::Both)?;
         break;
       }
